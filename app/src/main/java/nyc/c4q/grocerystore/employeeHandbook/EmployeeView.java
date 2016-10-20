@@ -7,10 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import nyc.c4q.grocerystore.R;
-import nyc.c4q.grocerystore.employeeHandbook.employees.Ashique;
+import nyc.c4q.grocerystore.employeeHandbook.employees.JoseV;
 
 public class EmployeeView extends AppCompatActivity {
-    public static final String EMPLOYEE_NAME = "extra.employee.name";
+    public static final String EMPLOYEE_NAME = "extra.employee.josev";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,13 +19,15 @@ public class EmployeeView extends AppCompatActivity {
         String employee = getIntent().getStringExtra(EMPLOYEE_NAME);
         if(employee != null){
             // call a function
+            if (employee.equals("JoseV"))
+                 showJoseV();
         }
     }
 
-    private void showAshique(){
+    private void showJoseV(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.employee_profile,new Ashique());
+        fragmentTransaction.add(R.id.employee_profile,new JoseV());
         fragmentTransaction.commit();
     }
 }
